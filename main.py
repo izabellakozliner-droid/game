@@ -5,7 +5,7 @@ import solider
 
 
 GameField = game_field.CreateGameField(consts.RowAmount, consts.CallumnAmount)
-solider.StartSoldierPos(GameField, consts.SoldierWidth, consts.SoldierHeight)
+solider.StartSoldierPos(GameField)
 
 def HandleInput(events):
     for event in pygame.event.get():
