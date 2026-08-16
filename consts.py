@@ -22,3 +22,6 @@ SoldierWidth = 2
 SoldierHeight = 4
 RowAmount = 25
 CallumnAmount = 50
+"""
+mines will be -2in matrix and flags willbe 4's 
+"""

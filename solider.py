@@ -26,56 +26,66 @@ def StartSoldierPos(GameField):
     GameField[3][1] = 1
 
 def MoovementUP(GameField):
-    for i in range(GameField):
-        for j in range(GameField):
+    for j in range(len(GameField[0])):
+        if GameField[0][j] == (1, -1, 5):
+            return
+
+    for i in range(len(GameField)):
+        for j in range(len(GameField[i])):
             if GameField[i][j] == 1:
-                try:
-                    GameField[i+1][j] = 1
-                    game_field[i][j] = 0
-                except IndexError:
-                    pass
+                GameField[i-1][j] += 1
+                game_field[i][j] -= 0
+
 
 def MoovementDown(GameField):
-    for i in range(GameField):
-        for j in range(GameField):
+
+    for j in range(len(GameField[24])):
+        if GameField[0][j] == (1, -1, 5):
+            return
+
+
+    for i in range(len(GameField)):
+        for j in range(len(GameField[i])):
             if GameField[i][j] == 1:
-                try:
-                    GameField[i-1][j] += 1
-                    game_field[i][j] -= 0
-                except IndexError:
-                    pass
+                GameField[i+1][j] += 1
+                game_field[i][j] -= 0
 
 def MoovementRight(GameField):
-    for i in range(GameField):
-        for j in range(GameField):
+
+    for i in range(len(GameField)):
+        if GameField[i][24] == (1, -1, 5):
+            return
+
+    for i in range(len(GameField)):
+        for j in range(len(GameField[i]) - 1, -1, -1):
             if GameField[i][j] == 1:
-                try:
-                    GameField[i][j+1] = 1
-                    game_field[i][j] = 0
-                except IndexError:
-                    pass
+                GameField[i][j+1] += 1
+                game_field[i][j] -= 0
 
 def MoovementLeft(GameField):
-    for i in range(GameField):
-        for j in range(GameField):
+
+    for i in range(len(GameField)):
+        if GameField[i][0] == (1, -1, 5):
+            return
+
+    for i in range(len(GameField)):
+        for j in range(len(GameField[i])):
             if GameField[i][j] == 1:
-                try:
-                    GameField[i][j-1] = 1
-                    game_field[i][j] = 0
-                except IndexError:
-                    pass
+                GameField[i][j-1] += 1
+                game_field[i][j] -= 0
 
 def StopOnTheMine(GameField):
-    for i in range(GameField):
-        for j in range(GameField):
-            if GameField[i][j] == 3:
+    for i in range(len(GameField)):
+        for j in range(len(GameField[i])):
+            if GameField[i][j] == -1:
                 return True
 
 def StopOnFlag(GameField):
-    for i in range(GameField):
-        for j in range(GameField):
-            if GameField[i][j] == 4:
+    for i in range(len(GameField)):
+        for j in range(len(GameField[i])):
+            if GameField[i][j] == 5:
                 return True
+
 
 
 
