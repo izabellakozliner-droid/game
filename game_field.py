@@ -3,6 +3,8 @@ import random
 import consts
 import numpy as np
 
+import solider
+
 # def CreateGameField(row, calumn):
 #     GameField = []
 #     for i in range(calumn):
@@ -22,8 +24,17 @@ import numpy as np
 #
 #     grass_display = grass_image[random.randint(0,20)]
 
-game_field = []
+GameField = []
 def create_matrix():
-    global game_field
-    game_field = [50*[i for i in " "] for j in range(25)]
-    return game_field
+    global GameField
+    GameField = [50*[i for i in " "] for j in range(25)]
+    return GameField
+print(create_matrix())
+
+
+solider.StartSoldierPos(GameField)
+solider.
+
+
+for col in zip(GameField):
+    print(list(col))
