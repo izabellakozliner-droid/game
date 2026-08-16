@@ -25,3 +25,8 @@ CallumnAmount = 50
 """
 mines will be -2in matrix and flags willbe 4's 
 """
+FlagWidth = 4
+FlagHeight = 3
+MineWidth = 3
+MineHeight = 1
+MinesAmmount = 20

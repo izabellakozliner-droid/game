@@ -42,7 +42,17 @@ def FlagSpawn(GameField):
 
 def MinesGenerator(GameField):
     minesLeft = consts.MinesAmmount
-
+    while minesLeft > 0:
+        mineStartRow = random.randint(0, consts.RowAmount - 1)
+        mineStartCol = random.randint(0, consts.CallumnAmount - 1)
+        try:
+            if GameField[mineStartRow][mineStartCol] == 0 and GameField[mineStartRow][mineStartCol + 3] == 0:
+                for i in range (3):
+                    GameField[mineStartRow][mineStartCol + i - 1] = -2
+                minesLeft -= 1
+        except IndexError:
+            pass
+    return GameField
 
 
 print(CreateGameField(consts.RowAmount, consts.CallumnAmount))
