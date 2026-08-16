@@ -24,6 +24,11 @@ RowAmount = 25
 CallumnAmount = 50
 """
 mines will be -2in matrix and flags willbe 4's 
+
+Soldier will be at 1
+
+Empty field is 0
+
 """
 FlagWidth = 4
 FlagHeight = 3
