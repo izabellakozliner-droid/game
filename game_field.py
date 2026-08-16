@@ -12,7 +12,6 @@ def CreateGameField(row, calumn):
     GameField = [[0 for _ in range(calumn)] for _ in range(row)]
     return GameField
 
-print(CreateGameField(consts.RowAmount, consts.CallumnAmount))
 
 # def random_grass():
 #     grass_image = pygame.image.load("grass.png")
@@ -34,7 +33,6 @@ def FlagSpawn(GameField):
     GameField[21][49] = 4
     GameField[21][48] = 4
     GameField[21][47] = 4
-    return GameField
 
 def MinesGenerator(GameField):
     minesLeft = consts.MinesAmmount
@@ -49,5 +47,3 @@ def MinesGenerator(GameField):
         except IndexError:
             pass
     return GameField
-
-# print(CreateGameField(25, 50))
