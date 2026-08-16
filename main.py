@@ -1,13 +1,17 @@
 import pygame
 import consts
-import game_field
 import solider
+import game_field
+
 
 matrix = game_field.CreateGameField(25, 50)
+game_field.FlagSpawn(matrix)
+solider.StartSoldierPos(matrix)
+game_field.MinesGenerator(matrix)
+
 for col in zip(matrix):
     print(list(col))
 
-print(matrix)
 
 def HandleInput(events):
     for event in pygame.event.get():
