@@ -1,13 +1,17 @@
 import pygame
 import consts
-import game_field
 import solider
+import game_field
 
 
-GameField = game_field.CreateGameField(consts.RowAmount, consts.CallumnAmount)
-solider.StartSoldierPos(GameField)
-game_field.FlagSpawn(GameField)
-game_field.MinesGenerator(GameField)
+matrix = game_field.CreateGameField(25, 50)
+game_field.FlagSpawn(matrix)
+solider.StartSoldierPos(matrix)
+game_field.MinesGenerator(matrix)
+
+for col in zip(matrix):
+    print(list(col))
+
 
 def HandleInput(events):
     for event in pygame.event.get():
@@ -16,12 +20,10 @@ def HandleInput(events):
                 pygame.quit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    solider.MoovementUP(GameField)
+                    solider.MoovementUP(matrix)
                 elif event.key == pygame.K_DOWN:
-                    solider.MoovementDown(GameField)
+                    solider.MoovementDown(matrix)
                 elif event.key == pygame.K_LEFT:
-                    solider.MoovementLeft(GameField)
+                    solider.MoovementLeft(matrix)
                 elif event.key == pygame.K_RIGHT:
-                    solider.MoovementRight(GameField)
-
-print(GameField)
+                    solider.MoovementRight(matrix)

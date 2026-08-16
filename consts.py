@@ -23,3 +23,7 @@ LOSE_LOCATION = \
     (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (LOSE_FONT_SIZE / 2))
 WIN_LOCATION = \
     (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (WIN_FONT_SIZE / 2))
+
+RowAmount = 25
+CallumnAmount = 50
+MinesAmmount = 20 #Bomb

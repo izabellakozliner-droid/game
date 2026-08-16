@@ -24,6 +24,7 @@ def StartSoldierPos(GameField):
     GameField[2][1] = 1
     GameField[3][0] = 1
     GameField[3][1] = 1
+    return GameField
 
 def MoovementUP(GameField):
     for j in range(len(GameField[0])):
@@ -42,7 +43,6 @@ def MoovementDown(GameField):
     for j in range(len(GameField[24])):
         if GameField[0][j] == (1, -1, 5):
             return
-
 
     for i in range(len(GameField)):
         for j in range(len(GameField[i])):
