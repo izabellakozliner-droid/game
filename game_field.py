@@ -3,47 +3,38 @@ import random
 import consts
 import numpy as np
 
-import solider
 
+GameField = []
+def create_matrix():
+    global GameField
+    GameField = [50*[i for i in "_"]for j in range(25)]
 
-# from main import GameField
-
-def CreateGameField(row, calumn):
-    GameField = [[0 for _ in range(calumn)] for _ in range(row)]
+    for col in zip(GameField):
+        print(list(col))
     return GameField
+create_matrix()
+
+Player_matrix = []
+def player_matrix():
+    global Player_matrix
+    Player_matrix = [50*[i for i in "_"]for j in range(25)]
+
+    for col in zip(Player_matrix):
+        print(list(col))
+    return Player_matrix
+player_matrix()
+
+bomb_matrix = []
+def Bomb_matrix():
+    global bomb_matrix
+    bomb_matrix = [50*[i for i in "_"]for j in range(25)]
+
+    for col in zip(bomb_matrix):
+        print(list(col))
+    return bomb_matrix
+Bomb_matrix()
+
+def random_grass():
+    for item in range(consts.TOTAL_NUM_BOMB):
 
 
-# def random_grass():
-#     grass_image = pygame.image.load("grass.png")
-#
-#     grass_display = grass_image[random.randint(0,20)]
-
-
-
-def FlagSpawn(GameField):
-    GameField[24][49] = 4
-    GameField[24][48] = 4
-    GameField[24][47] = 4
-    GameField[23][49] = 4
-    GameField[23][48] = 4
-    GameField[23][47] = 4
-    GameField[22][49] = 4
-    GameField[22][48] = 4
-    GameField[22][47] = 4
-    GameField[21][49] = 4
-    GameField[21][48] = 4
-    GameField[21][47] = 4
-
-def MinesGenerator(GameField):
-    minesLeft = consts.MinesAmmount
-    while minesLeft > 0:
-        mineStartRow = random.randint(0, consts.RowAmount - 1)
-        mineStartCol = random.randint(0, consts.CallumnAmount - 1)
-        try:
-            if GameField[mineStartRow][mineStartCol] == 0 and GameField[mineStartRow][mineStartCol + 3] == 0 and mineStartCol < 48:
-                for i in range (3):
-                    GameField[mineStartRow][mineStartCol + i - 1] = -2
-                minesLeft -= 1
-        except IndexError:
-            pass
-    return GameField
