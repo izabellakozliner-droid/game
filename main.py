@@ -1,4 +1,4 @@
-import pygame
+import pygame,time
 import consts
 import screen
 import solider
@@ -10,13 +10,28 @@ state = {
     "MoovementDown" : False,
     "MoovementLeft" : False,
     "running": True,
+    "pressed_enter": False,
 }
+
 def main():
+
     pygame.init()
     clock = pygame.time.Clock()
     while state["running"]:
         HandleInput()
+        if state["pressed_enter"]:
+            screen.newScreen()
+            time.sleep(1)
+            state["pressed_enter"] = False
+
+
+        screen.print_screen()
+
+
     clock.tick(60)
+
+
+
 def HandleInput():
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
@@ -36,7 +51,7 @@ def HandleInput():
                     #solider.MoovementRight(matrix)
                     print("")
                 if event.key == pygame.K_RETURN:
-                    screen.show_screen = True
+                    state["pressed_enter"] = True
                     print("")
 
 
