@@ -68,8 +68,20 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
 MinesGenerator(GameField, Player_matrix, bomb_matrix)
 
 
-def random_grass():
-    for item in range(consts.TOTAL_NUM_BOMB):
+def random_grass(random_bomb):
+    for item in range(consts.TOTAL_NUM_GRASS):
+       col  = random.randint(-1,len(GameField))
+       row = random.randint(-1, len(GameField[1]))
+       if GameField[col][row] == "_":
+           GameField[col][row] = "GRASS"
+       for col in zip(GameField):
+           print(list(col))
+       return GameField
+random_grass(GameField)
+
+
+
+
         pass
 
 
