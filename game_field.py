@@ -68,8 +68,6 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
                     break
         except IndexError:
             pass
-
-
         if ClearSpace == True:
             for j in range (3):
                 bomb_matrix[mineStartRow][mineStartCol + j] = -2
