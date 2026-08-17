@@ -48,8 +48,12 @@ def HandleInput():
             elif event.key == pygame.K_RETURN:
                 screen.show_screen = True
                 print("5")
-    solider.StopOnFlag(game_field.GameField, game_field.Player_matrix)
-    solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix)
+        if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
+            print("You Win!")
+            state["running"] = False
+        elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
+            state["running"] = False
+            print("You Loss!")
 
 
 if __name__ == "__main__":
