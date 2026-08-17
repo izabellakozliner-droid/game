@@ -55,17 +55,23 @@ def MoovementLeft(Player_matrix):
         main.PlayerPos.x -= 25
 
 
-def StopOnTheMine(GameField):
-    for i in range(len(GameField)):
-        for j in range(len(GameField[i])):
-            if GameField[i][j] == -1:
-                return True
+def StopOnTheMine(bomb_matrix, Player_matrix):
+    for i in range (len(Player_matrix)):
+        for j in range (len(Player_matrix[i])):
+            if Player_matrix[i][j] == 1:
+                if bomb_matrix[i][j] == -2:
+                    print("You Lost!")
+                    return True
 
-def StopOnFlag(GameField):
-    for i in range(len(GameField)):
-        for j in range(len(GameField[i])):
-            if GameField[i][j] == 5:
-                return True
+
+
+def StopOnFlag(GameField, Player_matrix):
+    for i in range(len(Player_matrix)):
+        for j in range(len(Player_matrix[i])):
+            if Player_matrix[i][j] == 1:
+                if GameField[i][j] == 4:
+                    print("You Win!")
+                    return True
 
 
 
