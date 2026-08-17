@@ -3,18 +3,6 @@ import random
 import pygame
 import game_field
 
-# def StartSoldierPos(GameField, SoldierWidth, SoldierHeight):
-#     high = consts.SoldierHeight
-#     width = consts.SoldierWidth
-#     for i in range(len(GameField)):
-#         if high > 0:
-#             for j in range(len(GameField[i])):
-#                 while width > 0:
-#                     GameField[i][j] = 1
-#                     width -= 1
-#                 high -= 1
-#     return(GameField)
-
 def StartSoldierPos(GameField):
     GameField[0][0] = 1
     GameField[0][1] = 1
@@ -27,28 +15,34 @@ def StartSoldierPos(GameField):
     return GameField
 
 def MoovementUP(GameField):
-    for j in range(len(GameField[0])):
+    for j in range(len(GameField[0])):#בודק שורה ראשונה במטריצה
         if GameField[0][j] == (1, -1, 5):
+            #1 בודק אם החייל במקום ריק
+            #-1 בודק אם החייל על פצצה
+            #5 בודק אם החייל הגיע לדגל
             return
 
-    for i in range(len(GameField)):
-        for j in range(len(GameField[i])):
-            if GameField[i][j] == 1:
-                GameField[i-1][j] += 1
-                game_field[i][j] -= 0
+    for i in range(len(GameField)):#בודק כל שורה בלוח (אינדקס)
+        for j in range(len(GameField[i])):#בודק כל עמודה בשורה(אינדקס)
+            if GameField[i][j] == 1:#בודק אם המקום בלוח שווה 1 כלומר החייל
+                GameField[i-1][j] += 1#זז שורה למעלה ונשאר באותה עמודה
+                GameField[i][j] -= 1#המקום שהחייל היה הופך לריק
 
 
 def MoovementDown(GameField):
 
-    for j in range(len(GameField[24])):
+    for j in range(len(GameField[24])):#בודק שורה אררונה במטריצה
         if GameField[0][j] == (1, -1, 5):
+            # 1 בודק אם החייל במקום ריק
+            # -1 בודק אם החייל על פצצה
+            # 5 בודק אם החייל הגיע לדגל
             return
 
-    for i in range(len(GameField)):
-        for j in range(len(GameField[i])):
-            if GameField[i][j] == 1:
-                GameField[i+1][j] += 1
-                game_field[i][j] -= 0
+    for i in range(len(GameField)):#בודק כל שורה בלוח (אינדקס)
+        for j in range(len(GameField[i])):#בודק כל עמודה בשורה(אינדקס)
+            if GameField[i][j] == 1:#בודק אם המקום בלוח שווה 1 כלומר החייל
+                GameField[i+1][j] += 1#זז שורה למטה ונשאר באותה עמודה
+                GameField[i][j] -= 1#המקום שהחייל היה הופך לריק
 
 def MoovementRight(GameField):
 
@@ -60,7 +54,7 @@ def MoovementRight(GameField):
         for j in range(len(GameField[i]) - 1, -1, -1):
             if GameField[i][j] == 1:
                 GameField[i][j+1] += 1
-                game_field[i][j] -= 0
+                GameField[i][j] -= 1
 
 def MoovementLeft(GameField):
 
@@ -72,7 +66,7 @@ def MoovementLeft(GameField):
         for j in range(len(GameField[i])):
             if GameField[i][j] == 1:
                 GameField[i][j-1] += 1
-                game_field[i][j] -= 0
+                GameField[i][j] -= 1
 
 def StopOnTheMine(GameField):
     for i in range(len(GameField)):
