@@ -41,7 +41,7 @@ Bomb_matrix()
 
 
 def MinesGenerator(GameField, Player_matrix, bomb_matrix):
-    minesLeft = consts.MinesAmmount * 10
+    minesLeft = consts.MinesAmmount
     while minesLeft > 0:
         mineStartRow = random.randint(0, consts.RowAmount - 1)
         mineStartCol = random.randint(0, 47)
