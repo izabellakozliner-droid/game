@@ -1,29 +1,44 @@
 import pygame
 import consts
+import screen
 import solider
 import game_field
 
-
-matrix = game_field.CreateGameField(25, 50)
-game_field.FlagSpawn(matrix)
-solider.StartSoldierPos(matrix)
-game_field.MinesGenerator(matrix)
-
-for col in zip(matrix):
-    print(list(col))
-
-
-def HandleInput(events):
+state = {
+    "MoovementRight" : False,
+    "MoovementUp" : False,
+    "MoovementDown" : False,
+    "MoovementLeft" : False,
+    "running": True,
+}
+def main():
+    pygame.init()
+    clock = pygame.time.Clock()
+    while state["running"]:
+        HandleInput()
+    clock.tick(60)
+def HandleInput():
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    solider.MoovementUP(matrix)
+                    #solider.MoovementUP(matrix)
+                    print("")
                 elif event.key == pygame.K_DOWN:
-                    solider.MoovementDown(matrix)
+                    #solider.MoovementDown(matrix)
+                    print("")
                 elif event.key == pygame.K_LEFT:
-                    solider.MoovementLeft(matrix)
+                    #solider.MoovementLeft(matrix)
+                    print("")
                 elif event.key == pygame.K_RIGHT:
-                    solider.MoovementRight(matrix)
+                    #solider.MoovementRight(matrix)
+                    print("")
+                if event.key == pygame.K_RETURN:
+                    screen.show_screen = True
+                    print("")
+
+
+if __name__ == "__main__":
+    main()
