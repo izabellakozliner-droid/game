@@ -14,6 +14,22 @@ def create_matrix():
     return GameField
 create_matrix()
 
+def FlagSpawn(GameField):
+    GameField[24][49] = 4
+    GameField[24][48] = 4
+    GameField[24][47] = 4
+    GameField[23][49] = 4
+    GameField[23][48] = 4
+    GameField[23][47] = 4
+    GameField[22][49] = 4
+    GameField[22][48] = 4
+    GameField[22][47] = 4
+    GameField[21][49] = 4
+    GameField[21][48] = 4
+    GameField[21][47] = 4
+
+FlagSpawn(GameField)
+
 Player_matrix = []
 def player_matrix():
     global Player_matrix
@@ -34,7 +50,26 @@ def Bomb_matrix():
     return bomb_matrix
 Bomb_matrix()
 
+
+def MinesGenerator(GameField, Player_matrix, bomb_matrix):
+    minesLeft = consts.MinesAmmount * 10
+    while minesLeft > 0:
+        mineStartRow = random.randint(0, consts.RowAmount - 1)
+        mineStartCol = random.randint(0, 47)
+        try:
+            if GameField[mineStartRow][mineStartCol] == 0 and GameField[mineStartRow][mineStartCol + 2] == 0 and Player_matrix[mineStartRow][mineStartCol] == 0 and Player_matrix[mineStartRow][mineStartCol + 2] == 0:
+                for i in range (3):
+                    bomb_matrix[mineStartRow][mineStartCol + i ] = -2
+                minesLeft -= 1
+        except IndexError:
+            pass
+    return bomb_matrix
+
+MinesGenerator(GameField, Player_matrix, bomb_matrix)
+
+
 def random_grass():
     for item in range(consts.TOTAL_NUM_BOMB):
+        pass
 
 
