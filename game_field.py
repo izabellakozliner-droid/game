@@ -90,11 +90,16 @@ def random_grass(random_bomb):
     for item in range(consts.TOTAL_NUM_GRASS):
        col  = random.randint(-1,len(GameField))
        row = random.randint(-1, len(GameField[1]))
-       if GameField[col][row] == "_":
-           GameField[col][row] = "GRASS"
-       for col in zip(GameField):
-           print(list(col))
-       return GameField
+       try:
+           if GameField[col][row] == "_":
+               GameField[col][row] = "GRASS"
+           # for col in zip(GameField):
+           #     print(list(col))
+       except IndexError:
+           pass
+    for col in zip(GameField):
+        print(list(col))
+    return GameField
 random_grass(GameField)
 
 
