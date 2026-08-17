@@ -24,12 +24,10 @@ def main():
             time.sleep(1)
             state["pressed_enter"] = False
 
-
         screen.print_screen()
 
 
     clock.tick(60)
-
 
 
 def HandleInput():
@@ -42,7 +40,7 @@ def HandleInput():
                     #solider.MoovementUP(matrix)
                     print("")
                 elif event.key == pygame.K_DOWN:
-                    #solider.MoovementDown(matrix)
+                     #solider.MoovementDown(matrix)
                     print("")
                 elif event.key == pygame.K_LEFT:
                     #solider.MoovementLeft(matrix)
@@ -53,6 +51,8 @@ def HandleInput():
                 if event.key == pygame.K_RETURN:
                     state["pressed_enter"] = True
                     print("")
+
+
 
 
 if __name__ == "__main__":
