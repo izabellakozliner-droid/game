@@ -1,6 +1,5 @@
 import pygame
 import random
-import sys
 import consts,time
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -17,12 +16,23 @@ def solider_image():
     screen.blit(soldier, (200,100))
 
 def newScreen():
-    print("newScreen")
-    screen.fill((155,155,155))
+    global SCREEN
+    screen_color = (0,0,0)
     pygame.display.update()
+    screen.fill(screen_color)
+    SCREEN = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
+    drawGrid()
+    pygame.display.flip()
+
+def drawGrid():
+    pygame.init()
+    for row in range(0, consts.WINDOW_WIDTH,consts.BLOCK_SIZE):
+        for col in range(0, consts.WINDOW_HEIGHT, consts.BLOCK_SIZE):
+            rect = pygame.Rect(row,col,consts.BLOCK_SIZE,consts.BLOCK_SIZE)
+            pygame.draw.rect(screen,consts.LINE_COLOR,rect,1)
 
 def print_screen():
-    screen.fill((0,0,0))
+    screen.fill((0, 100, 0))
     flagSpawn()
     solider_image()
     pygame.display.update()

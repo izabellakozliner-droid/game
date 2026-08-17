@@ -3,6 +3,7 @@ import consts
 import screen
 import solider
 import game_field
+from screen import drawGrid
 
 state = {
     "MoovementRight" : False,
@@ -21,7 +22,7 @@ def main():
         HandleInput()
         if state["pressed_enter"]:
             screen.newScreen()
-            time.sleep(1)
+            time.sleep(3)
             state["pressed_enter"] = False
 
 
@@ -29,6 +30,7 @@ def main():
 
 
     clock.tick(60)
+
 
 
 
