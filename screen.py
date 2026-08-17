@@ -1,7 +1,7 @@
 import pygame
 import random
+import sys
 import consts
-pygame.init()
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
@@ -16,17 +16,6 @@ def solider_image():
     scaled_flag = pygame.transform.scale(SOLIDER, (consts.PLAYER_WIDTH, consts. PLAYER_HEIGHT))
     screen.blit(scaled_flag, (60,80))
 
-
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-    screen.fill(consts.BORDER_COLOR)
-    solider_image()
-    flagSpawn()
-    pygame.display.flip()
-    clock.tick(60)
-pygame.quit()
 
 
 
