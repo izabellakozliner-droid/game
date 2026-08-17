@@ -48,6 +48,8 @@ def HandleInput():
             elif event.key == pygame.K_RETURN:
                 screen.show_screen = True
                 print("5")
+    solider.StopOnFlag(game_field.GameField, game_field.Player_matrix)
+    solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix)
 
 
 if __name__ == "__main__":
