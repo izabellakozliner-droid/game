@@ -60,7 +60,7 @@ def StopOnTheMine(bomb_matrix, Player_matrix):
         for j in range (len(Player_matrix[i])):
             if Player_matrix[i][j] == 1:
                 if bomb_matrix[i][j] == -2:
-                    print("You Lost!")
+                    # print("You Lost!")
                     return True
 
 
@@ -70,7 +70,7 @@ def StopOnFlag(GameField, Player_matrix):
         for j in range(len(Player_matrix[i])):
             if Player_matrix[i][j] == 1:
                 if GameField[i][j] == 4:
-                    print("You Win!")
+                    # print("You Win!")
                     return True
 
 
