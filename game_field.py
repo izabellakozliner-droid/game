@@ -95,11 +95,11 @@ def random_grass(random_bomb):
                GameField[col][row] = "GRASS"
            # for col in zip(GameField):
            #     print(list(col))
-       except IndexError:
+       except IndexError: #Without it we face a mistake because col max is 50 while it's max index is 49
            pass
     for col in zip(GameField):
-        print(list(col))
-    return GameField
+        print(list(col)) #moved out of the cycle so it won't print matrix until it is done
+    return GameField # moved it out of for loop so it won't end the function when the first grass appears
 random_grass(GameField)
 
 
