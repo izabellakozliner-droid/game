@@ -3,7 +3,6 @@ import random
 import consts
 import numpy as np
 
-
 GameField = []
 def create_matrix():
     global GameField
@@ -32,6 +31,7 @@ Player_matrix = []
 def player_matrix():
     global Player_matrix
     Player_matrix = [50*[i for i in "_"]for j in range(25)]
+    # Player_matrix = np.zeros((3, 4), dtype=int)
 
     return Player_matrix
 player_matrix()

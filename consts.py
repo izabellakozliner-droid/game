@@ -1,14 +1,17 @@
 import random as rd
 import pygame
 
-WINDOW_HEIGHT = 720#אורך הלוח
-WINDOW_WIDTH = 1280#רוחב לוח
+# WINDOW_HEIGHT = 720#אורך הלוח
+# WINDOW_WIDTH = 1280#רוחב לוח
+WINDOW_HEIGHT = 725#אורך הלוח
+WINDOW_WIDTH = 1440#רוחב לוח
 
+#
 # MOVE_LENGTH = ''
 FLAG_WIDTH = 40
 FLAG_HEIGHT = 30
-PLAYER_WIDTH = 100
-PLAYER_HEIGHT = 100
+PLAYER_WIDTH = 2
+PLAYER_HEIGHT = 4
 PLAYER_LOCATION = [0,0]
 # FLAG_LOCATION = ''
 GREEN = (0, 100, 0)
