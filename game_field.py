@@ -61,6 +61,20 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
             if GameField[mineStartRow][mineStartCol + i] != "_" or Player_matrix[mineStartRow][mineStartCol + i] != "_" or bomb_matrix[mineStartRow][mineStartCol + i] == -2:
                 ClearSpace = False
                 break
+        #Tryint to prevent mines from blocking the only passage to the flag
+        try:
+            for i in range(5):
+                if bomb_matrix[mineStartRow + i][mineStartCol] == -2 or bomb_matrix[mineStartRow - i][mineStartCol]== -2 or bomb_matrix[mineStartRow + i][mineStartCol + 2] == -2 or bomb_matrix[mineStartRow - i][mineStartCol + 2]== -2:
+                    ClearSpace = False
+                    break
+            for i in range(3):
+                if bomb_matrix[mineStartRow][mineStartCol + i] == -2 or bomb_matrix[mineStartRow][mineStartCol - i] == -2:
+                    ClearSpace = False
+                    break
+        except IndexError:
+            pass
+
+
         if ClearSpace == True:
             for j in range (3):
                 bomb_matrix[mineStartRow][mineStartCol + j] = -2
@@ -76,11 +90,16 @@ def random_grass(random_bomb):
     for item in range(consts.TOTAL_NUM_GRASS):
        col  = random.randint(-1,len(GameField))
        row = random.randint(-1, len(GameField[1]))
-       if GameField[col][row] == "_":
-           GameField[col][row] = "GRASS"
-       for col in zip(GameField):
-           print(list(col))
-       return GameField
+       try:
+           if GameField[col][row] == "_":
+               GameField[col][row] = "GRASS"
+           # for col in zip(GameField):
+           #     print(list(col))
+       except IndexError: #Without it we face a mistake because col max is 50 while it's max index is 49
+           pass
+    for col in zip(GameField):
+        print(list(col)) #moved out of the cycle so it won't print matrix until it is done
+    return GameField # moved it out of for loop so it won't end the function when the first grass appears
 random_grass(GameField)
 
 
