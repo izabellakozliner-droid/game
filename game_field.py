@@ -47,7 +47,7 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
         mineStartCol = random.randint(0, 47)
         ClearSpace = True
         for i in range(3):
-            if GameField[mineStartRow][mineStartCol + i] != "_" or Player_matrix[mineStartRow][mineStartCol + i] != "_":
+            if GameField[mineStartRow][mineStartCol + i] != "_" or Player_matrix[mineStartRow][mineStartCol + i] != "_" or bomb_matrix[mineStartRow][mineStartCol + i] == -2:
                 ClearSpace = False
                 break
         if ClearSpace == True:
@@ -61,6 +61,8 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
 FlagSpawn(GameField)
 MinesGenerator(GameField, Player_matrix, bomb_matrix)
 print(bomb_matrix)
+for col in zip(bomb_matrix):
+    print(list(col))
 
 def random_grass():
     for item in range(consts.TOTAL_NUM_BOMB):
