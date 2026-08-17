@@ -64,7 +64,7 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
         #Tryint to prevent mines from blocking the only passage to the flag
         try:
             for i in range(5):
-                if bomb_matrix[mineStartRow + i][mineStartCol] == -2:
+                if bomb_matrix[mineStartRow + i][mineStartCol] or bomb_matrix[mineStartRow - i][mineStartCol]== -2:
                     ClearSpace = False
                     break
             for i in range(3):
