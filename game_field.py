@@ -73,8 +73,8 @@ Bomb_matrix()
 def MinesGenerator(GameField, Player_matrix, bomb_matrix):
     minesLeft = consts.MinesAmount
     while minesLeft > 0:
-        mineStartRow = random.randint(0, 24)
-        mineStartCol = random.randint(0, 47)
+        mineStartRow = random.randint(0, 19)
+        mineStartCol = random.randint(0, 42)
         ClearSpace = True
         for i in range(3):
             try:
