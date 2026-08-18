@@ -15,12 +15,12 @@ def main():
     while state["running"]:
         HandleInput()
         if state["pressed_enter"]:
-            screen.newScreen()
+            screen.newScreen(consts.SOLDIER_COL, consts.SOLDIER_ROW)
             time.sleep(1)
             state["pressed_enter"] = False
-        screen.print_screen()
-    clock.tick(60)
 
+        screen.print_screen(consts.SOLDIER_COL,consts.SOLDIER_ROW )
+    clock.tick(60)
 
 state = {
     "MovementRight" : False,
@@ -38,15 +38,21 @@ def HandleInput():
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
             elif event.key == pygame.K_UP:
-                solider.MoovementUP(game_field.Player_matrix)
+                solider.UP()
             elif event.key == pygame.K_DOWN:
-                solider.MoovementDown(game_field.Player_matrix)
+                solider.Down()
             elif event.key == pygame.K_LEFT:
-                solider.MoovementLeft(game_field.Player_matrix)
+                solider.Left()
             elif event.key == pygame.K_RIGHT:
-                solider.MoovementRight(game_field.Player_matrix)
+                solider.Right()
             elif event.key == pygame.K_RETURN:
                 state["pressed_enter"] = True
+    # if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
+    #     print("You Win!")
+    #     state["running"] = False
+    # elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
+    #     print("You Loss!")
+    #     state["running"] = False
 
 if __name__ == "__main__":
     main()
