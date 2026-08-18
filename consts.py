@@ -19,6 +19,11 @@ FLAG_WIDTH = 40
 FLAG_HEIGHT = 30
 PLAYER_WIDTH = 100
 PLAYER_HEIGHT = 100
+
+PlayerMatrixHigh = 4
+PlayerMatrixWidth = 2
+
+
 PLAYER_LOCATION = [0, 0]
 # FLAG_LOCATION = ''
 GREEN = (0, 100, 0)

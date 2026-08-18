@@ -4,41 +4,54 @@ import pygame
 import game_field
 import main
 
+soldier_pos = {"row": 0, "col": 0}
 
 def ClearSoldier(Player_matrix):
-    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PLAYER_HEIGHT):
-        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PLAYER_WIDTH):
+    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PlayerMatrixHigh):
+        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PlayerMatrixWidth):
             if (0 <= r < len(Player_matrix) and 0 <= c < len(Player_matrix[0]) and Player_matrix[r][c] == 1):
                 Player_matrix[r][c] = "_"
 
 
 def DrawSoldier(Player_matrix):
-    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PLAYER_HEIGHT):
-        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PLAYER_WIDTH):
+    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PlayerMatrixHigh):
+        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PlayerMatrixWidth):
             if 0 <= r < len(Player_matrix) and 0 <= c < len(Player_matrix[0]):
                 Player_matrix[r][c] = 1
     for col in zip(Player_matrix):
         print(list(col))
 
+# if soldier_pos["row"] > 0:
+#         ClearSoldier(Player_matrix)
+#         soldier_pos["row"] -= 1
+#         DrawSoldier(Player_matrix)
+#         main.PlayerPos.y -= 25
+
+
+
 
 def UP():
-    consts.SOLDIER_ROW -= 1
-    print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
+    if consts.SOLDIER_ROW > 0:
+        consts.SOLDIER_ROW -= 1
+        print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Down():
-    consts.SOLDIER_ROW += 1
-    print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
+    if consts.SOLDIER_ROW< 25:
+        consts.SOLDIER_ROW += 1
+        print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Right():
-    consts.SOLDIER_COL += 1
-    print("SOLDIER_col: ", consts.SOLDIER_COL)
+    if consts.SOLDIER_COL < 49:
+        consts.SOLDIER_COL += 1
+        print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
 def Left():
-    consts.SOLDIER_COL -= 1
-    print("SOLDIER_col: ", consts.SOLDIER_COL)
+    if consts.SOLDIER_COL > 0:
+        consts.SOLDIER_COL -= 1
+        print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
 def StopOnTheMine(bomb_matrix, Player_matrix):
