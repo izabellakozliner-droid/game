@@ -120,6 +120,7 @@ def create_game_field():
 
     return GameField
 
+
 GameField = create_game_field()
 
 #for row in GameField:

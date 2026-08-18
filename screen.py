@@ -75,4 +75,5 @@ def print_screen():
     # mine_image = pygame.image.load("mine.png")
     # grass_image = pygame.image.load("grass.png")
     pygame.display.update()
+    grass_image(screen,game_field.GameField)
 
