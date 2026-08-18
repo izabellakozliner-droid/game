@@ -76,4 +76,5 @@ def print_screen():
     # grass_image = pygame.image.load("grass.png")
     pygame.display.update()
     grass_image(screen,game_field.GameField)
+    print('test')
 

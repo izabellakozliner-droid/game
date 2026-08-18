@@ -26,8 +26,6 @@ def FlagSpawn(GameField):
     GameField[21][48] = 4
     GameField[21][47] = 4
 
-FlagSpawn(GameField)
-
 Player_matrix = []
 def player_matrix():
     global Player_matrix
@@ -41,7 +39,6 @@ def Bomb_matrix():
     global bomb_matrix
     bomb_matrix = [50*[i for i in "_"]for j in range(25)]
     consts.TOTAL_NUM_BOMB = 30
-
     return bomb_matrix
 Bomb_matrix()
 
@@ -68,15 +65,13 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
                     break
         except IndexError:
             pass
-
-
         if ClearSpace == True:
             for j in range (3):
                 bomb_matrix[mineStartRow][mineStartCol + j] = -2
             minesLeft -= 1
     return bomb_matrix
 MinesGenerator(GameField,Player_matrix,bomb_matrix)
-print(bomb_matrix)
+print("/////////////////////////This is bombs_matrix/////////////////////////")
 for col in zip(bomb_matrix):
     print(list(col))
 
@@ -108,21 +103,21 @@ def random_grass(GameField):
 #
 #     return GameField
 
-def create_game_field():
-    GameField = []
-
-    for row in range(consts.RowAmount):
-        GameField.append([])
-        for col in range(48):
-            GameField[row].append("_")
-
-    GameField = random_grass(GameField)
-
-    return GameField
-
-
-GameField = create_game_field()
-
+# def create_game_field(GameField):
+#     for row in range(consts.RowAmount):
+#         GameField.append([])
+#         for col in range(48):
+#             GameField[row].append("_")
+#
+#     GameField = random_grass(GameField)
+#
+#     return GameField
+FlagSpawn(GameField)
+random_grass(GameField)
+print("/////////////////////////////// This is FieldMatrix//////////////////////////////")
+for col in zip(GameField):
+    print(list(col))
+# GameField = create_game_field(GameField)
 #for row in GameField:
   #  print(row)
 

@@ -66,10 +66,13 @@ def MoovementLeft(Player_matrix):
 def StopOnTheMine(bomb_matrix, Player_matrix):
     for i in range (len(Player_matrix)):
         for j in range (len(Player_matrix[i])):
-            if Player_matrix[i][j] == 1:
-                if bomb_matrix[i][j] == -2:
-                    # print("You Lost!")
-                    return True
+            try:
+                if Player_matrix[i][j] == 1:
+                    if bomb_matrix[i][j] == -2:
+                        # print("You Lost!")
+                        return True
+            except IndexError:
+                pass
 
 
 
