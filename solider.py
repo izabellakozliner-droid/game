@@ -29,6 +29,8 @@ def MoovementUP(Player_matrix):
         soldier_pos["row"] -= 1
         DrawSoldier(Player_matrix)
         main.PlayerPos.y -= 25
+        for col in zip(Player_matrix):
+            print(list(col))
 
 
 
@@ -38,6 +40,8 @@ def MoovementDown(Player_matrix):
         soldier_pos["row"] += 1
         DrawSoldier(Player_matrix)
         main.PlayerPos.y += 25
+        for col in zip(Player_matrix):
+            print(list(col))
 
 
 def MoovementRight(Player_matrix):
@@ -46,6 +50,8 @@ def MoovementRight(Player_matrix):
         soldier_pos["col"] += 1
         DrawSoldier(Player_matrix)
         main.PlayerPos.x += 25
+        for col in zip(Player_matrix):
+            print(list(col))
 
 def MoovementLeft(Player_matrix):
     if soldier_pos["col"] > 0:
@@ -53,6 +59,8 @@ def MoovementLeft(Player_matrix):
         soldier_pos["col"] -= 1
         DrawSoldier(Player_matrix)
         main.PlayerPos.x -= 25
+        for col in zip(Player_matrix):
+            print(list(col))
 
 
 def StopOnTheMine(bomb_matrix, Player_matrix):
