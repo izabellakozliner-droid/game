@@ -1,9 +1,6 @@
 import pygame
-import random
-import sys
-import consts, time
+import consts
 import game_field
-from main import state
 
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
