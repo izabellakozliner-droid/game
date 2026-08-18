@@ -47,9 +47,9 @@ def HandleInput():
                 solider.Right()
             elif event.key == pygame.K_RETURN:
                 state["pressed_enter"] = True
-    # if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
-    #     print("You Win!")
-    #     state["running"] = False
+    if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
+        print("You Win!")
+        state["running"] = False
     # elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
     #     print("You Loss!")
     #     state["running"] = False
