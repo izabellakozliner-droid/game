@@ -62,7 +62,7 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
                 if bomb_matrix[mineStartRow + i][mineStartCol] == -2 or bomb_matrix[mineStartRow - i][mineStartCol]== -2 or bomb_matrix[mineStartRow + i][mineStartCol + 2] == -2 or bomb_matrix[mineStartRow - i][mineStartCol + 2]== -2:
                     ClearSpace = False
                     break
-            for i in range(3):
+            for i in range(4):
                 if bomb_matrix[mineStartRow][mineStartCol + i] == -2 or bomb_matrix[mineStartRow][mineStartCol - i] == -2:
                     ClearSpace = False
                     break
