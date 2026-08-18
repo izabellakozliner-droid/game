@@ -1,9 +1,5 @@
 import consts
-import random
 import pygame
-import game_field
-import main
-
 
 def ClearSoldier(Player_matrix):
     for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PLAYER_HEIGHT):
@@ -22,22 +18,26 @@ def DrawSoldier(Player_matrix):
 
 
 def UP():
-    consts.SOLDIER_ROW -= 1
+    if consts.SOLDIER_ROW > 0:
+        consts.SOLDIER_ROW -= 1
     print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Down():
-    consts.SOLDIER_ROW += 1
+    if consts.SOLDIER_ROW < 24:
+        consts.SOLDIER_ROW += 1
     print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Right():
-    consts.SOLDIER_COL += 1
+    if consts.SOLDIER_COL < 47:
+        consts.SOLDIER_COL += 1
     print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
 def Left():
-    consts.SOLDIER_COL -= 1
+    if consts.SOLDIER_COL > 0:
+        consts.SOLDIER_COL -= 1
     print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
