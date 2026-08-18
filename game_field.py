@@ -42,16 +42,6 @@ def Bomb_matrix():
     bomb_matrix = [50*[i for i in "_"]for j in range(25)]
     consts.TOTAL_NUM_BOMB = 30
 
-    while consts.TOTAL_NUM_BOMB > 0:
-        row = random.randint(0, consts.RowAmount - 1)
-        col = random.randint(0, 47)
-
-        if GameField[row][col] == "_":
-            GameField[row][col] = "BOMB"
-            consts.TOTAL_NUM_BOMB-= 1
-
-    return GameField
-
     return bomb_matrix
 Bomb_matrix()
 
