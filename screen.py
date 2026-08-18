@@ -51,6 +51,7 @@ def flagSpawn():
     consts.screen.blit(scaled_flag, (x, y))
 
 
+
 def solider_image(col, row):
     SOLIDER = pygame.image.load('soldier.png')
     soldier = pygame.transform.scale(SOLIDER, (consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT))
