@@ -3,7 +3,6 @@ import consts
 import game_field
 
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
@@ -43,7 +42,7 @@ def bomb_image(screen, GameField):
 def flagSpawn():
     FLAG = pygame.image.load("flag.png").convert_alpha()
     scaled_flag = pygame.transform.scale(FLAG, (consts.FLAG_HEIGHT, consts.FLAG_WIDTH))
-    screen.blit(scaled_flag, (60, 80))
+    consts.screen.blit(scaled_flag, (60, 80))
 
 
 def solider_image(col, row):
@@ -51,21 +50,21 @@ def solider_image(col, row):
     soldier = pygame.transform.scale(SOLIDER, (consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT))
     col *= consts.BLOCK_SIZE
     row *= consts.BLOCK_SIZE
-    screen.blit(soldier, (col, row))
+    consts.screen.blit(soldier, (col, row))
 
 def solider_night(col, row):
     SOLIDER_NIGHT = pygame.image.load('soldier_nigth.png')
     soldier2 = pygame.transform.scale(SOLIDER_NIGHT, (consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT))
     col *= consts.BLOCK_SIZE
     row *= consts.BLOCK_SIZE
-    screen.blit(soldier2, (col, row))
+    consts.screen.blit(soldier2, (col, row))
 
 
 def newScreen(col, row):
     global SCREEN
     screen_color = (0, 0, 0)
     pygame.display.update()
-    screen.fill(screen_color)
+    consts.screen.fill(screen_color)
     SCREEN = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
     drawGrid()
     solider_night(col, row)
@@ -77,11 +76,11 @@ def drawGrid():
     for row in range(0, consts.WINDOW_WIDTH, consts.BLOCK_SIZE):
         for col in range(0, consts.WINDOW_HEIGHT, consts.BLOCK_SIZE):
             rect = pygame.Rect(row, col, consts.BLOCK_SIZE, consts.BLOCK_SIZE)
-            pygame.draw.rect(screen, consts.LINE_COLOR, rect, 1)
+            pygame.draw.rect(consts.screen, consts.LINE_COLOR, rect, 1)
 
 
 def print_screen(col, row):
-    screen.fill((0, 100, 0))
+    consts.screen.fill((0, 100, 0))
     flagSpawn()
     solider_image(col, row)
     # pygame.display.set_caption("The Flag")
@@ -89,5 +88,5 @@ def print_screen(col, row):
     # flag_image = pygame.image.load("flag.png")
     # mine_image = pygame.image.load("mine.png")
     # grass_image = pygame.image.load("grass.png")
-    grass_image(screen, game_field.GameField)
+    grass_image(consts.screen, game_field.GameField)
     pygame.display.update()
