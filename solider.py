@@ -42,18 +42,18 @@ def Left():
 
 
 def StopOnTheMine(bomb_matrix, Player_matrix):
-    for i in range(len(Player_matrix)):
-        for j in range(len(Player_matrix[i])):
-            if Player_matrix[i][j] == 1:
-                if bomb_matrix[i][j] == -2:
+    for i in range(len(bomb_matrix)):
+        for j in range(len(bomb_matrix[i])):
+            if bomb_matrix[i][j] == -2:
+                if i == consts.SOLDIER_ROW and j == consts.SOLDIER_COL:
                     print("You Lost!")
                     return True
 
 
 def StopOnFlag(GameField, Player_matrix):
-    for i in range(len(Player_matrix)):
-        for j in range(len(Player_matrix[i])):
-            if Player_matrix[i][j] == 1:
-                if GameField[i][j] == 4:
+    for i in range(len(GameField)):
+        for j in range(len(GameField[i])):
+            if GameField[i][j] == 4:
+                if i == consts.SOLDIER_ROW and j == consts.SOLDIER_COL:
                     print("You Win!")
                     return True

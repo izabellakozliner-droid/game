@@ -16,19 +16,33 @@ def create_matrix():
 create_matrix()
 
 
+# def FlagSpawn(GameField):
+#     GameField[24][49] = 4
+#     GameField[24][48] = 4
+#     GameField[24][47] = 4
+#     GameField[23][49] = 4
+#     GameField[23][48] = 4
+#     GameField[23][47] = 4
+#     GameField[22][49] = 4
+#     GameField[22][48] = 4
+#     GameField[22][47] = 4
+#     GameField[21][49] = 4
+#     GameField[21][48] = 4
+#     GameField[21][47] = 4
+
 def FlagSpawn(GameField):
-    GameField[24][49] = 4
-    GameField[24][48] = 4
-    GameField[24][47] = 4
-    GameField[23][49] = 4
-    GameField[23][48] = 4
-    GameField[23][47] = 4
-    GameField[22][49] = 4
-    GameField[22][48] = 4
-    GameField[22][47] = 4
-    GameField[21][49] = 4
-    GameField[21][48] = 4
-    GameField[21][47] = 4
+    GameField[20][45] = 4
+    GameField[20][44] = 4
+    GameField[20][43] = 4
+    GameField[19][45] = 4
+    GameField[19][44] = 4
+    GameField[19][43] = 4
+    GameField[18][45] = 4
+    GameField[18][44] = 4
+    GameField[18][43] = 4
+    GameField[17][45] = 4
+    GameField[17][44] = 4
+    GameField[17][43] = 4
 
 
 FlagSpawn(GameField)
