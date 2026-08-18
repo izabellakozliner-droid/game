@@ -41,17 +41,6 @@ def Bomb_matrix():
     global bomb_matrix
     bomb_matrix = [50*[i for i in "_"]for j in range(25)]
     consts.TOTAL_NUM_BOMB = 30
-
-    while consts.TOTAL_NUM_BOMB > 0:
-        row = random.randint(0, consts.RowAmount - 1)
-        col = random.randint(0, 47)
-
-        if GameField[row][col] == "_":
-            GameField[row][col] = "BOMB"
-            consts.TOTAL_NUM_BOMB-= 1
-
-    return GameField
-
     return bomb_matrix
 Bomb_matrix()
 
@@ -78,8 +67,6 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
                     break
         except IndexError:
             pass
-
-
         if ClearSpace == True:
             for j in range (3):
                 bomb_matrix[mineStartRow][mineStartCol + j] = -2
@@ -118,20 +105,20 @@ def random_grass(GameField):
 #
 #     return GameField
 
-def create_game_field():
-    GameField = []
-
-    for row in range(consts.RowAmount):
-        GameField.append([])
-        for col in range(48):
-            GameField[row].append("_")
-
-    GameField = random_grass(GameField)
-
-    return GameField
-
-
-GameField = create_game_field()
+# def create_game_field():
+#     GameField = []
+#
+#     for row in range(consts.RowAmount):
+#         GameField.append([])
+#         for col in range(48):
+#             GameField[row].append("_")
+#
+#     GameField = random_grass(GameField)
+#
+#     return GameField
+#
+#
+# GameField = create_game_field()
 
 #for row in GameField:
   #  print(row)
