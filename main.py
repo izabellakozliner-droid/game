@@ -3,16 +3,7 @@ import consts
 import screen
 import solider
 import game_field
-from game_field import GameField
 
-state = {
-    "MoovementRight" : False,
-    "MoovementUp" : False,
-    "MoovementDown" : False,
-    "MoovementLeft" : False,
-    "running": True,
-    "pressed_enter": False,
-}
 
 PlayerPos = pygame.Rect(0, 0, 50, 75)
 
@@ -24,14 +15,21 @@ def main():
     while state["running"]:
         HandleInput()
         if state["pressed_enter"]:
-            screen.newScreen()
+            screen.newScreen(consts.SOLDIER_COL, consts.SOLDIER_ROW)
             time.sleep(1)
             state["pressed_enter"] = False
-        screen.print_screen()
+
+        screen.print_screen(consts.SOLDIER_COL,consts.SOLDIER_ROW )
     clock.tick(60)
 
-
-
+state = {
+    "MovementRight" : False,
+    "MovementUp" : False,
+    "MovementDown" : False,
+    "MovementLeft" : False,
+    "running": True,
+    "pressed_enter": False,
+}
 def HandleInput():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -40,27 +38,21 @@ def HandleInput():
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
             elif event.key == pygame.K_UP:
-                solider.MoovementUP(game_field.Player_matrix)
-                print()
+                solider.UP()
             elif event.key == pygame.K_DOWN:
-                solider.MoovementDown(game_field.Player_matrix)
-                print()
+                solider.Down()
             elif event.key == pygame.K_LEFT:
-                solider.MoovementLeft(game_field.Player_matrix)
-                print()
+                solider.Left()
             elif event.key == pygame.K_RIGHT:
-                solider.MoovementRight(game_field.Player_matrix)
-                print()
+                solider.Right()
             elif event.key == pygame.K_RETURN:
                 state["pressed_enter"] = True
-    if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
-        print("You Win!")
-        state["running"] = False
-    elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
-        # state["running"] = False
-        # print("You Loss!")
-        pass
-
+    # if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
+    #     print("You Win!")
+    #     state["running"] = False
+    # elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
+    #     print("You Loss!")
+    #     state["running"] = False
 
 if __name__ == "__main__":
     main()
