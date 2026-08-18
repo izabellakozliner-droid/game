@@ -41,15 +41,19 @@ def HandleInput():
             elif event.key == pygame.K_UP:
                 solider.MoovementUP(game_field.Player_matrix)
                 state["MoovementUp"] = True
+                print()
             elif event.key == pygame.K_DOWN:
                 solider.MoovementDown(game_field.Player_matrix)
                 state["MoovementDown"] = True
+                print()
             elif event.key == pygame.K_LEFT:
                 solider.MoovementLeft(game_field.Player_matrix)
                 state["MoovementLeft"] = True
+                print()
             elif event.key == pygame.K_RIGHT:
                 solider.MoovementRight(game_field.Player_matrix)
                 state["MoovementRight"] = True
+                print()
             elif event.key == pygame.K_RETURN:
                 state["pressed_enter"] = True
     if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
