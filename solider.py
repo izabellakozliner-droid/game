@@ -1,68 +1,59 @@
 import consts
-import random
 import pygame
-import game_field
-import main
-
-soldier_pos = {"row": 0, "col": 0}
 
 def ClearSoldier(Player_matrix):
-    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PlayerMatrixHigh):
-        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PlayerMatrixWidth):
+    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PLAYER_HEIGHT):
+        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PLAYER_WIDTH):
             if (0 <= r < len(Player_matrix) and 0 <= c < len(Player_matrix[0]) and Player_matrix[r][c] == 1):
                 Player_matrix[r][c] = "_"
 
 
 def DrawSoldier(Player_matrix):
-    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PlayerMatrixHigh):
-        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PlayerMatrixWidth):
+    for r in range(consts.SOLDIER_ROW, consts.SOLDIER_ROW + consts.PLAYER_HEIGHT):
+        for c in range(consts.SOLDIER_COL, consts.SOLDIER_COL + consts.PLAYER_WIDTH):
             if 0 <= r < len(Player_matrix) and 0 <= c < len(Player_matrix[0]):
                 Player_matrix[r][c] = 1
     for col in zip(Player_matrix):
         print(list(col))
 
-# if soldier_pos["row"] > 0:
-#         ClearSoldier(Player_matrix)
-#         soldier_pos["row"] -= 1
-#         DrawSoldier(Player_matrix)
-#         main.PlayerPos.y -= 25
-
-
-
 
 def UP():
-    consts.SOLDIER_ROW -= 1
+    if consts.SOLDIER_ROW > 0:
+        consts.SOLDIER_ROW -= 1
     print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Down():
-    consts.SOLDIER_ROW += 1
+    if consts.SOLDIER_ROW < 20:
+        consts.SOLDIER_ROW += 1
     print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Right():
-    consts.SOLDIER_COL += 1
+    if consts.SOLDIER_COL < 45:
+        consts.SOLDIER_COL += 1
     print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
 def Left():
-    consts.SOLDIER_COL -= 1
+    if consts.SOLDIER_COL > 0:
+        consts.SOLDIER_COL -= 1
     print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
 def StopOnTheMine(bomb_matrix, Player_matrix):
-    for i in range(len(bomb_matrix)):
-        for j in range(len(bomb_matrix[i])):
-            if bomb_matrix[i][j] == -2:
-                if i == consts.SOLDIER_ROW and j == consts.SOLDIER_COL:
+    for i in range(len(Player_matrix)):
+        for j in range(len(Player_matrix[i])):
+            if Player_matrix[i][j] == 1:
+                if bomb_matrix[i][j] == -2:
                     print("You Lost!")
                     return True
 
 
 def StopOnFlag(GameField, Player_matrix):
-    for i in range(len(GameField)):
-        for j in range(len(GameField[i])):
-            if GameField[i][j] == 4:
-                if i == consts.SOLDIER_ROW and j == consts.SOLDIER_COL:
+    for i in range(len(Player_matrix)):
+        for j in range(len(Player_matrix[i])):
+            if Player_matrix[i][j] == 1:
+                if GameField[i][j] == 4:
                     print("You Win!")
                     return True
