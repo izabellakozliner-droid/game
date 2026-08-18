@@ -1,5 +1,11 @@
 import random as rd
 import pygame
+BLOCK_SIZE = 25
+LINE_COLOR = (0,150,0)
+NUM_ROW = 25
+NUM_COL = 50
+WINDOW_HEIGHT = NUM_ROW * BLOCK_SIZE
+WINDOW_WIDTH = NUM_COL * BLOCK_SIZE
 
 WINDOW_HEIGHT = 720#אורך הלוח
 WINDOW_WIDTH = 1280#רוחב לוח
