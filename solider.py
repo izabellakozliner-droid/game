@@ -35,7 +35,7 @@ def MoovementUP(Player_matrix):
 
 
 def MoovementDown(Player_matrix):
-    if soldier_pos["row"] + consts.PLAYER_HEIGHT < 24:
+    if soldier_pos["row"] + consts.PLAYER_HEIGHT < 25:
         ClearSoldier(Player_matrix)
         soldier_pos["row"] += 1
         DrawSoldier(Player_matrix)
@@ -76,10 +76,13 @@ def StopOnTheMine(bomb_matrix, Player_matrix):
 def StopOnFlag(GameField, Player_matrix):
     for i in range(len(Player_matrix)):
         for j in range(len(Player_matrix[i])):
-            if Player_matrix[i][j] == 1:
-                if GameField[i][j] == 4:
-                    # print("You Win!")
-                    return True
+            try:
+                if Player_matrix[i][j] == 1:
+                    if GameField[i][j] == 4:
+                        # print("You Win!")
+                        return True
+            except IndexError:
+                pass
 
 
 

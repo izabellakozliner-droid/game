@@ -3,6 +3,7 @@ import consts
 import screen
 import solider
 import game_field
+from game_field import GameField
 
 state = {
     "MoovementRight" : False,
@@ -56,8 +57,9 @@ def HandleInput():
         print("You Win!")
         state["running"] = False
     elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
-        state["running"] = False
-        print("You Loss!")
+        # state["running"] = False
+        # print("You Loss!")
+        pass
 
 
 if __name__ == "__main__":

@@ -26,8 +26,6 @@ def FlagSpawn(GameField):
     GameField[21][48] = 4
     GameField[21][47] = 4
 
-FlagSpawn(GameField)
-
 Player_matrix = []
 def player_matrix():
     global Player_matrix
@@ -105,21 +103,19 @@ def random_grass(GameField):
 #
 #     return GameField
 
-def create_game_field():
-    GameField = []
+# def create_game_field(GameField):
+#     for row in range(consts.RowAmount):
+#         GameField.append([])
+#         for col in range(48):
+#             GameField[row].append("_")
+#
+#     GameField = random_grass(GameField)
+#
+#     return GameField
+FlagSpawn(GameField)
+random_grass(GameField)
 
-    for row in range(consts.RowAmount):
-        GameField.append([])
-        for col in range(48):
-            GameField[row].append("_")
-
-    GameField = random_grass(GameField)
-
-    return GameField
-
-
-GameField = create_game_field()
-
+# GameField = create_game_field(GameField)
 #for row in GameField:
   #  print(row)
 
