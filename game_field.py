@@ -105,20 +105,20 @@ def random_grass(GameField):
 #
 #     return GameField
 
-# def create_game_field():
-#     GameField = []
-#
-#     for row in range(consts.RowAmount):
-#         GameField.append([])
-#         for col in range(48):
-#             GameField[row].append("_")
-#
-#     GameField = random_grass(GameField)
-#
-#     return GameField
-#
-#
-# GameField = create_game_field()
+def create_game_field():
+    GameField = []
+
+    for row in range(consts.RowAmount):
+        GameField.append([])
+        for col in range(48):
+            GameField[row].append("_")
+
+    GameField = random_grass(GameField)
+
+    return GameField
+
+
+GameField = create_game_field()
 
 #for row in GameField:
   #  print(row)

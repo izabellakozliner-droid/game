@@ -35,4 +35,5 @@ WIN_LOCATION = \
     (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (WIN_FONT_SIZE / 2))
 TOTAL_NUM_BOMB = 20
 CallumnAmount = 50
+RowAmount = 25
 MinesAmmount = 20 #Bomb
