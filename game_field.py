@@ -71,7 +71,7 @@ def MinesGenerator(GameField, Player_matrix, bomb_matrix):
             minesLeft -= 1
     return bomb_matrix
 MinesGenerator(GameField,Player_matrix,bomb_matrix)
-print(bomb_matrix)
+print("/////////////////////////This is bombs_matrix/////////////////////////")
 for col in zip(bomb_matrix):
     print(list(col))
 
@@ -114,7 +114,9 @@ def random_grass(GameField):
 #     return GameField
 FlagSpawn(GameField)
 random_grass(GameField)
-
+print("/////////////////////////////// This is FieldMatrix//////////////////////////////")
+for col in zip(GameField):
+    print(list(col))
 # GameField = create_game_field(GameField)
 #for row in GameField:
   #  print(row)
