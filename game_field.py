@@ -128,6 +128,7 @@ def random_grass(GameField):
 #
 #     return GameField
 
+
 def create_game_field(GameField):
 
     for row in range(consts.RowAmount):

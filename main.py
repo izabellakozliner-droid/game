@@ -19,7 +19,7 @@ def main():
             time.sleep(1)
             state["pressed_enter"] = False
 
-        screen.print_screen(consts.SOLDIER_COL,consts.SOLDIER_ROW )
+        screen.print_screen(consts.SOLDIER_COL,consts.SOLDIER_ROW)
     clock.tick(60)
 
 state = {

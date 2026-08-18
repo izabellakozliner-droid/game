@@ -30,7 +30,7 @@ def Down():
 
 
 def Right():
-    if consts.SOLDIER_COL < 45:
+    if consts.SOLDIER_COL < 46:
         consts.SOLDIER_COL += 1
     print("SOLDIER_col: ", consts.SOLDIER_COL)
 

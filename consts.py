@@ -27,6 +27,7 @@ PlayerMatrixHigh = 4
 PlayerMatrixWidth = 2
 
 
+
 PLAYER_LOCATION = [0, 0]
 # FLAG_LOCATION = ''
 GREEN = (0, 100, 0)
