@@ -35,6 +35,11 @@ def print_screen():
     screen.fill((0, 100, 0))
     flagSpawn()
     solider_image()
+    # pygame.display.set_caption("The Flag")
+    # soldier_image = pygame.image.load("soldier.png")
+    # flag_image = pygame.image.load("flag.png")
+    # mine_image = pygame.image.load("mine.png")
+    # grass_image = pygame.image.load("grass.png")
     pygame.display.update()
 
 
