@@ -38,11 +38,17 @@ def bomb_image(screen, GameField):
                 y = row * consts.GRASS_HEIGHT
                 screen.blit(bomb_scaled, (x, y))
 
-
 def flagSpawn():
     FLAG = pygame.image.load("flag.png").convert_alpha()
-    scaled_flag = pygame.transform.scale(FLAG, (consts.FLAG_HEIGHT, consts.FLAG_WIDTH))
-    consts.screen.blit(scaled_flag, (60, 80))
+    scaled_flag = pygame.transform.scale(
+        FLAG,
+        (consts.FLAG_WIDTH, consts.FLAG_HEIGHT)
+    )
+
+    x = consts.WINDOW_WIDTH - consts.FLAG_WIDTH
+    y = consts.WINDOW_HEIGHT - consts.FLAG_HEIGHT
+
+    consts.screen.blit(scaled_flag, (x, y))
 
 
 def solider_image(col, row):
