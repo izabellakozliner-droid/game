@@ -94,3 +94,6 @@ def print_screen(col, row):
     # grass_image = pygame.image.load("grass.png")
     grass_image(screen, game_field.GameField)
     pygame.display.update()
+
+def Bombaffect():
+    pass

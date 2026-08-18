@@ -50,9 +50,9 @@ def HandleInput():
     if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
         print("You Win!")
         state["running"] = False
-    # elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
-    #     print("You Loss!")
-    #     state["running"] = False
+    elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
+        print("There is a bomb")
+        screen.Bombaffect()
 
 if __name__ == "__main__":
     main()

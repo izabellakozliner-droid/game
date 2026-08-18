@@ -31,27 +31,23 @@ def DrawSoldier(Player_matrix):
 
 
 def UP():
-    if consts.SOLDIER_ROW > 0:
-        consts.SOLDIER_ROW -= 1
-        print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
+    consts.SOLDIER_ROW -= 1
+    print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Down():
-    if consts.SOLDIER_ROW< 25:
-        consts.SOLDIER_ROW += 1
-        print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
+    consts.SOLDIER_ROW += 1
+    print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Right():
-    if consts.SOLDIER_COL < 49:
-        consts.SOLDIER_COL += 1
-        print("SOLDIER_col: ", consts.SOLDIER_COL)
+    consts.SOLDIER_COL += 1
+    print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
 def Left():
-    if consts.SOLDIER_COL > 0:
-        consts.SOLDIER_COL -= 1
-        print("SOLDIER_col: ", consts.SOLDIER_COL)
+    consts.SOLDIER_COL -= 1
+    print("SOLDIER_col: ", consts.SOLDIER_COL)
 
 
 def StopOnTheMine(bomb_matrix, Player_matrix):
