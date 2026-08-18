@@ -24,13 +24,13 @@ def UP():
 
 
 def Down():
-    if consts.SOLDIER_ROW < 24:
+    if consts.SOLDIER_ROW < 20:
         consts.SOLDIER_ROW += 1
     print("SOLDIER_ROW: ", consts.SOLDIER_ROW)
 
 
 def Right():
-    if consts.SOLDIER_COL < 47:
+    if consts.SOLDIER_COL < 45:
         consts.SOLDIER_COL += 1
     print("SOLDIER_col: ", consts.SOLDIER_COL)
 
