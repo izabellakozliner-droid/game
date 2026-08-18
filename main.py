@@ -1,8 +1,9 @@
-import pygame
+import pygame,time
 import consts
 import screen
 import solider
 import game_field
+from screen import drawGrid
 
 state = {
     "MoovementRight" : False,
@@ -10,49 +11,50 @@ state = {
     "MoovementDown" : False,
     "MoovementLeft" : False,
     "running": True,
+    "pressed_enter": False,
 }
+
 def main():
+
     pygame.init()
     clock = pygame.time.Clock()
     while state["running"]:
         HandleInput()
-    clock.tick(60)
-# for j in range(len(game_field.Player_matrix)):
-#     for k in range(len(game_field.Player_matrix[j])):
-#         if game_field.Player_matrix[j][k] == "_":
-#             game_field.Player_matrix[j][k] = 0
+        if state["pressed_enter"]:
+            screen.newScreen()
+            time.sleep(3)
+            state["pressed_enter"] = False
 
-PlayerPos = pygame.Rect(0, 0, 50, 75)
+
+        screen.print_screen()
+
+
+    clock.tick(60)
+
+
 
 
 def HandleInput():
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            state["running"] = False
-        elif event.type == pygame.KEYDOWN:
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
-            elif event.key == pygame.K_UP:
-                solider.MoovementUP(game_field.Player_matrix)
-                print("1")
-            elif event.key == pygame.K_DOWN:
-                solider.MoovementDown(game_field.Player_matrix)
-                print("2")
-            elif event.key == pygame.K_LEFT:
-                solider.MoovementLeft(game_field.Player_matrix)
-                print("3")
-            elif event.key == pygame.K_RIGHT:
-                solider.MoovementRight(game_field.Player_matrix)
-                print("4")
-            elif event.key == pygame.K_RETURN:
-                screen.show_screen = True
-                print("5")
-    if solider.StopOnFlag(game_field.GameField, game_field.Player_matrix) == True:
-        print("You Win!")
-        state["running"] = False
-    elif solider.StopOnTheMine(game_field.bomb_matrix, game_field.Player_matrix) == True:
-        state["running"] = False
-        print("You Loss!")
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    #solider.MoovementUP(matrix)
+                    print("")
+                elif event.key == pygame.K_DOWN:
+                    #solider.MoovementDown(matrix)
+                    print("")
+                elif event.key == pygame.K_LEFT:
+                    #solider.MoovementLeft(matrix)
+                    print("")
+                elif event.key == pygame.K_RIGHT:
+                    #solider.MoovementRight(matrix)
+                    print("")
+                if event.key == pygame.K_RETURN:
+                    state["pressed_enter"] = True
+                    print("")
 
 
 if __name__ == "__main__":
